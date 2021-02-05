@@ -10,6 +10,7 @@ import 'boxicons/css/boxicons.min.css';
 import VueHorizontalTimeline from 'vue-horizontal-timeline'; //타임라인
 import VueRouter from 'vue-router';
 import ScrollBar from '@morioh/v-perfect-scrollbar';
+import * as VueGoogleMaps from "vue2-google-maps";
 
 Vue.config.productionTip = false;
 
@@ -23,6 +24,14 @@ Vue.use(Vuesax, {
 Vue.use(VueRouter)
 Vue.use(VueHorizontalTimeline);
 Vue.use(ScrollBar);
+
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: "AIzaSyD1f6lLrJ_PlxfpXz-UyZ8KBqyG1iaCDRY",
+    libraries: "places" 
+  }
+});
+
 
 new Vue({
   vuetify,
