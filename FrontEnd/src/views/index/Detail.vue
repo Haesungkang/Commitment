@@ -27,13 +27,9 @@
       <ArticleDetail />
     </div>
   </div>
-  
 </template>
 
-
-
 <script>
-
 import ArticleDetail from './../../components/detail/ArticleDetail';
 
 export default {
@@ -135,7 +131,7 @@ export default {
 }
 
 @media (max-width: 450px) {
-    .grid-container {
+  .grid-container {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: min-content min-content;

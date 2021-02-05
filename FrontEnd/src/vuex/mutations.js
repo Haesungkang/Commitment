@@ -11,4 +11,7 @@ export default {
     state.authToken = null;
     state.userInfo = '';
   },
+  CURRENT_POSITION(state, payload) {
+    state.currentPosition = payload;
+  },
 };

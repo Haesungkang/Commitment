@@ -5,4 +5,7 @@ export default {
   getUserInfo(state) {
     return state.userInfo;
   },
+  getCurrentPosition(state) {
+    return state.currentPosition;
+  },
 };
