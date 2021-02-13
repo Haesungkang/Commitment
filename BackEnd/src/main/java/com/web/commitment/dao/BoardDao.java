@@ -39,7 +39,7 @@ public interface BoardDao extends JpaRepository<Board, String> {
 	@Query(value = "select * from sns s,commit c where c.id=s.commit_id and c.open=1 order by s.created_at desc", nativeQuery = true)
 	Page<Board> findAllByCommitId(Pageable pageable);
 
-	@Query(value = "SELECT * FROM commit c, sns s where c.id=s.commit_id and c.open=1 and ( 6371 * acos( cos( radians(:curlat) ) * cos( radians( c.lat ) ) *"
+	@Query(value = "SELECT s.* FROM commit c, sns s where c.id=s.commit_id and c.open=1 and ( 6371 * acos( cos( radians(:curlat) ) * cos( radians( c.lat ) ) *"
 			+ " cos( radians( c.lng ) - radians(:curlng) ) + sin( radians(:curlat) ) * sin( radians( c.lat ) ) ) )<=:radius order by s.created_at desc", nativeQuery = true)
 	Page<Board> radiusCommitId(@Param("curlat") String curlat, @Param("curlng") String curlng,
 			@Param("radius") double radius, Pageable pageable);
@@ -48,7 +48,7 @@ public interface BoardDao extends JpaRepository<Board, String> {
 	@Query(value = "select * from sns s,commit c "
 			+ "where s.user_email in (select f.follow_to from follow f where f.follow_from=:email) "
 			+ "and c.id=s.commit_id and c.open=1 "
-			+ "order by s.created_at desc", nativeQuery = true)	
+			+ "order by s.created_at desc", nativeQuery = true)
 	Page<Board> findBoardByEmailSort(@Param("email")String email,Pageable pageable);
 
 	//글쓴이로 검색
